@@ -8,7 +8,10 @@ export default class SingleLineFiled extends React.Component {
 		return (
 			<div className='single-line'>
 				<label for={value}>{value}</label>
-				<input id={value} type='text' placeholder={value}/>
+				<input 
+					id={value} 
+					type='text' 
+					placeholder={value}/>
 			</div>
 		);
 	}
