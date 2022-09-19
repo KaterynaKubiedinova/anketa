@@ -1,9 +1,9 @@
-import Anketa from './components/Anketa/anketa'
+import Form from './components/Form/Form';
 
 function App() {
   return (
     <div className="App">
-      <Anketa/>
+      <Form/>
     </div>
   );
 }
