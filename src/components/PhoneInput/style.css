@@ -1,4 +1,4 @@
-.multi-line {
+.phone {
 	color: rgb(82, 2, 82);
 	margin: auto;
 	margin-top: 5px;
@@ -14,20 +14,14 @@ label {
 	margin: 10px 15px 5px 15px;
 }
 
-textarea {
-	font-family: Arial, Helvetica, sans-serif;
+input {
 	color: rgb(82, 2, 82);
 	background: rgb(206, 243, 212);
-	border: 1px solid purple;
-	font-size: 16px;
+	border: 1px solid purple ;
 	outline : none;
-	resize : none;
 	width: 90%;
+	height: 20px;
 	margin: auto;
 	margin-top: 5px;
 	margin-bottom: 15px;
-}
-
-span {
-	margin: 0 0 10px 20px;
 }

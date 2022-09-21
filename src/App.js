@@ -1,9 +1,11 @@
-import Form from './components/Form/Form';
+import React from 'react';
+import Questionary from './components/Questionary/Questionary';
+
 
 function App() {
   return (
     <div className="App">
-      <Form/>
+      <Questionary/>
     </div>
   );
 }
