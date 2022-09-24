@@ -1,91 +1,97 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './style.css';
 import SavedForm from '../SavedField/SavedForm';
 import Form from '../Form/Form';
+import { useState } from 'react';
+import ChangeThemeBtn from '../ChangeThemeBtn/changeTheme';
 
-export default class Questionary extends React.Component {
-	constructor() {
-		super();
-		this.state = {
-			saved: false,
-			user: {
-				name: '',
-				surname: '',
-				birthday: '',
-				phone: '',
-				website: '',
-				aboutYourself: '',
-				technology: '',
-				lastProject: ''
-			},
-			clickedSave: false,
-			isEmptyField: false,
-			validName: true,
-			validSurname: true,
-			validPhone: true,
-			validWebsite: true, 
-			validBirthday: true,
-			validAboutYourself: true,
-			validTechnology: true,
-			validProject: true
-		};
-		
-		this.onSave = this.onSave.bind(this);
-		this.validation = this.validation.bind(this);
-	}
+export default function Questionary() {
+	const [user, setUser] = useState({
+		name: '',
+		surname: '',
+		birthday: '',
+		phone: '',
+		website: '',
+		aboutYourself: '',
+		technology: '',
+		lastProject: ''
+	});
+	const [saved, setSaved] = useState(false);
+	const [clickedSave, setClickedSave] = useState(false);
+	const [isEmptyField, setIsEmptyField] = useState(false);
+	const [validName, setValidName] = useState(true);
+	const [validSurname, setValidSurname] = useState(true);
+	const [validPhone, setValidPhone] = useState(true);
+	const [validWebsite, setValidWebsite] = useState(true);
+	const [validBirthday, setValidBirthday] = useState(true);
+	const [validAboutYourself, setValidAboutYourself] = useState(true);
+	const [validTechnology, setValidTechnology] = useState(true);
+	const [validProject, setValidProject] = useState(true);
 
-	onChange = (property, value) => {
-		this.setState((state) => ({
-			...state,
-			user: {
-				...state.user,
-				[property]: value.trimStart()
+	useEffect(() => {
+		if (clickedSave === true) {
+			const emptyCondition = !(user.name && user.surname && user.birthday && user.phone && user.website && user.aboutYourself && user.technology && user.lastProject);
+
+			if (emptyCondition) {
+				setSaved(false);
+				setIsEmptyField(true);
+			} else {
+				const stateValidation = validBirthday && validName && validSurname && validWebsite && validAboutYourself && validTechnology && validProject;
+
+				if (stateValidation) {
+					setSaved(true);
+					setIsEmptyField(false);
+					setClickedSave(false);
+				} else {
+					setSaved(false);
+					setIsEmptyField(false);
+				}
 			}
-		}));
+			
+		}
+	},[clickedSave, validation])
+
+	function onChange(property, value) {
+		setUser((prevUser) => ({
+			...prevUser,
+			[property]: value.trimStart()
+		}))
 	}
 
-	onCancel = (e) => {
+	function onCancel(e) {
 		e.preventDefault();
-		this.setState({
-			saved: false,
-			user: {
-				name: '',
-				surname: '',
-				birthday: '',
-				phone: '',
-				website: '',
-				aboutYourself: '',
-				technology: '',
-				lastProject: ''
-			},
-			clickedSave: false,
-			isEmptyField: false,
-			validName: true,
-			validSurname: true,
-			validPhone: true,
-			validWebsite: true, 
-			validBirthday: true,
-			validAboutYourself: true,
-			validTechnology: true,
-			validProject: true
+		setSaved(false);
+		setUser({
+			name: '',
+			surname: '',
+			birthday: '',
+			phone: '',
+			website: '',
+			aboutYourself: '',
+			technology: '',
+			lastProject: ''
 		});
+		setClickedSave(false);
+		setIsEmptyField(false);
+		validName(true);
+		setValidSurname(true);
+		setValidPhone (true);
+		setValidWebsite (true);
+		setValidBirthday (true);
+		setValidAboutYourself (true);
+		setValidTechnology (true);
+		setValidProject (true);
 	}
 
-	validation = async function() {
-		const user = this.state.user;
-		
+	function validation() {
 		if (user.name) {
 			const firstLetter = user.name[0];
 			const nameValidation = firstLetter === firstLetter.toUpperCase();
 
 			if (nameValidation) {
-				await this.setState({
-					validName: true
-				});
+				setValidName(true);
 			}else {
-				await this.setState({
-					validName: false
-				});
+				setValidName(false);
 			}
 		}
 		
@@ -94,13 +100,9 @@ export default class Questionary extends React.Component {
 			const surnameValidation = firstLetter === firstLetter.toUpperCase();
 
 			if (surnameValidation) {
-				await this.setState({
-					validSurname: true
-				});
+				setValidSurname(true);
 			}else {
-				await this.setState({
-					validSurname: false
-				});
+				setValidSurname(false);
 			} 
 		}
 
@@ -109,13 +111,9 @@ export default class Questionary extends React.Component {
 			const websiteValidation = isWebsite === 'https://';
 
 			if (websiteValidation) {
-				await this.setState({
-					validWebsite: true
-				});
+				setValidWebsite(true);
 			}else {
-				await this.setState({
-					validWebsite: false
-				});
+				setValidWebsite(false);
 			} 
 		}
 
@@ -125,13 +123,9 @@ export default class Questionary extends React.Component {
 			const birthdayValidation = new Date(user.birthday) < today;
 
 			if (birthdayValidation) {
-				await this.setState({
-					validBirthday: true
-				});
+				setValidBirthday(true);
 			}else {
-				await this.setState({
-					validBirthday: false
-				});
+				setValidBirthday(false);
 			} 
 		}
 		
@@ -140,13 +134,9 @@ export default class Questionary extends React.Component {
 			const phoneValidation = reg.test(user.phone);
 			
 			if (phoneValidation) {
-				await this.setState({
-					validPhone: true
-				});
+				setValidPhone(true);
 			}else {
-				await this.setState({
-					validPhone: false
-				});
+				setValidPhone(false);
 			} 
 		}
 
@@ -154,14 +144,9 @@ export default class Questionary extends React.Component {
 			const aboutYourselfValidation = user.aboutYourself.trim().length <= 600;
 
 			if (aboutYourselfValidation) {
-				await this.setState({
-					validAboutYourself: true
-				});
+				setValidAboutYourself(true);
 			}else {
-				await this.setState((state) => ({
-					...state,
-					validAboutYourself: false
-				}));
+				setValidAboutYourself(false);
 			}
 		}
 
@@ -169,13 +154,9 @@ export default class Questionary extends React.Component {
 			const technologyValidation = user.technology.trim().length <= 600;
 
 			if (technologyValidation) {
-				await this.setState({
-					validTechnology: true
-				});
+				setValidTechnology(true);
 			}else {
-				await this.setState({
-					validTechnology: false
-				});
+				setValidTechnology(false);
 			}
 		}
 
@@ -183,65 +164,39 @@ export default class Questionary extends React.Component {
 			const lastProjectValidation = user.lastProject.trim().length <= 600;
 
 			if (lastProjectValidation) {
-				await this.setState({
-					validProject: true
-				});
+				setValidProject(true);
 			}else {
-				await this.setState({
-					validProject: false
-				});
+				setValidProject(false);
 			}
 		}
 	}
 
-	onSave = async function(e) {
+	function onSave(e) {
 		e.preventDefault();
+		validation();
+		setClickedSave(true);
+	}
 
-		const user = this.state.user;
-		
-		await this.setState({
-			clickedSave: true
-		});
-		await this.validation();
-
-		const emptyCondition = !(user.name && user.surname && user.birthday && user.phone && user.website && user.aboutYourself && user.technology && user.lastProject);
-
-		if (emptyCondition) {
-			await this.setState({
-				saved: false,
-				isEmptyField: true
-			});
-		} else {
-			const stateValidation = this.state.validBirthday && this.state.validName && this.state.validSurname && this.state.validWebsite && this.state.validAboutYourself && this.state.validTechnology && this.state.validProject;
-
-			if (stateValidation) {
-				await this.setState({
-					saved: true,
-					clickedSave: false,
-					isEmptyField: false,
-				});
-			} else {
-				await this.setState({
-					saved: false,
-					isEmptyField: false
-				});
+	return (
+		<>
+			<ChangeThemeBtn/>
+			{
+			!saved ? 
+			<Form 
+				user={user} 
+				saved={saved}
+				isEmptyField={isEmptyField}
+				clickedSave={clickedSave}
+				validName={validName}
+				validSurname={validSurname}
+				validBirthday={validBirthday}
+				validPhone={validPhone}
+				validWebsite={validWebsite}
+				onChange={onChange} 
+				onCancel={onCancel}
+				onSave={onSave}/> : 
+			<SavedForm user={user}/>
 			}
-		}
-	}
-
-	render() {
-		return (
-			<>
-				{
-				!this.state.saved ? 
-				<Form 
-					state={this.state} 
-					onChange={this.onChange} 
-					onCancel={this.onCancel}
-					onSave={this.onSave}/> : 
-				<SavedForm user={this.state.user}/>
-				}
-			</> 
-		);
-	}
+		</> 
+	);
 }
