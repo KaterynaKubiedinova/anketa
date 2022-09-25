@@ -11,17 +11,14 @@ export default class Input extends React.Component {
 	}
 
 	render() {
-		const placeholder = this.props.placeholder;
-		const value = this.props.value;
-		const inputName = this.props.inputName;
-		const type = this.props.typeData;
+		const {placeholder, value, inputName, typeData} = this.props;
 
 		return (
 			<div className='single-line'>
 				<label htmlFor={inputName}>{placeholder}</label>
 				<input 
 					placeholder={placeholder}
-					type={type}
+					type={typeData}
 					name={inputName}
 					value={value}
 					onChange={this.inputChange}/>
