@@ -21,17 +21,14 @@ export default class TextArea extends React.Component {
 	}
 
 	render() {
-		const placeholder = this.props.placeholder;
-		const value = this.props.value;
-		const inputName = this.props.inputName;
-		const type = this.props.typeData;
+		const {placeholder, value, inputName, typeData} = this.props;
 		
 		return (
 			<div className='multi-line'>
 				<label htmlFor={inputName}>{placeholder}</label>
 				<textarea 
 					name={inputName}
-					type={type}
+					type={typeData}
 					value={value}
 					onChange={this.textChange}
 					rows='7' 
