@@ -1,9 +1,9 @@
-.main-buttons button{
-	margin: 30px 5px 10px 25px;
-	border: none;
-	min-height: 50px;
-	max-height: 65px;
-	width: 130px;
-	font-size: 24px;
-	font-weight: 700;
+.main-buttons button {
+  margin: 30px 5px 10px 25px;
+  border: none;
+  min-height: 50px;
+  max-height: 65px;
+  width: 130px;
+  font-size: 24px;
+  font-weight: 700;
 }

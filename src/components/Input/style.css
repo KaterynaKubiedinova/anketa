@@ -1,27 +1,27 @@
 .single-line {
-	color: rgb(82, 2, 82);
-	margin: auto;
-	margin-top: 5px;
-	width: 70%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: flex-start;
-	background: plum;
+  color: rgb(82, 2, 82);
+  margin: auto;
+  margin-top: 5px;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background: plum;
 }
 
 label {
-	margin: 10px 15px 5px 15px;
+  margin: 10px 15px 5px 15px;
 }
 
 input {
-	color: rgb(82, 2, 82);
-	background: rgb(206, 243, 212);
-	border: 1px solid purple ;
-	outline : none;
-	width: 90%;
-	height: 20px;
-	margin: auto;
-	margin-top: 5px;
-	margin-bottom: 15px;
+  color: rgb(82, 2, 82);
+  background: rgb(206, 243, 212);
+  border: 1px solid purple;
+  outline: none;
+  width: 90%;
+  height: 20px;
+  margin: auto;
+  margin-top: 5px;
+  margin-bottom: 15px;
 }
