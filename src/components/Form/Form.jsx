@@ -68,7 +68,7 @@ class Form extends Component {
 					}
 				</div>
 				<PhoneInput
-					placeholder='Phone number'
+					plach='Phone number'
 					value={user.phone}
 					onChange={this.props.onChange}/>
 				<div className='errors'>
