@@ -23,12 +23,12 @@ class Form extends Component {
 					{
 						state.isEmptyField && !user.name && state.validName  ? 
 						<ErrorMessage/> : 
-						<></>
+						null
 					}
 					{
 						!state.validName && state.clickedSave && user.name ? 
 						<span>Not valid name. The first letter must be capitalized.</span> : 
-						<></>
+						null
 					}
 				</div>
 				<Input 
@@ -41,12 +41,12 @@ class Form extends Component {
 					{
 						state.isEmptyField && !user.surname ? 
 						<ErrorMessage/> : 
-						<></>
+						null
 					}
 					{
 						!state.validSurname && state.clickedSave  && user.surname ? 
 						<span>Not valid surname. The first letter must be capitalized.</span> : 
-						<></>
+						null
 					}
 				</div>	
 				<Input 
@@ -59,12 +59,12 @@ class Form extends Component {
 					{
 						state.isEmptyField && !user.birthday ? 
 						<ErrorMessage/> : 
-						<></>
+						null
 					}
 					{
 						!state.validBirthday && state.clickedSave  && user.birthday ? 
 						<span>Not valid date of birth. The birthday cannot be in the future.</span> : 
-						<></>
+						null
 					}
 				</div>
 				<PhoneInput
@@ -75,12 +75,12 @@ class Form extends Component {
 					{
 						state.isEmptyField && !user.phone ? 
 						<ErrorMessage/> : 
-						<></>
+						null
 					}
 					{
 						!state.validPhone && state.clickedSave && user.phone ? 
 						<span>Not valid phone. The phone cannot contained letter</span> : 
-						<></>
+						null
 					}
 				</div>
 				<Input 
@@ -93,12 +93,12 @@ class Form extends Component {
 					{
 						state.isEmptyField && !user.website ? 
 						<ErrorMessage/> : 
-						<></>
+						null
 					}
 					{
 						!state.validWebsite && state.clickedSave && user.website ? 
 						<span>Not valid website. The website must start from 'https://'.</span> : 
-						<></>
+						null
 					}
 				</div>
 				<TextArea
@@ -111,7 +111,7 @@ class Form extends Component {
 					{
 						state.isEmptyField && !user.aboutYourself ? 
 						<ErrorMessage/> : 
-						<></>
+						null
 					}
 				</div>
 				<TextArea
@@ -124,7 +124,7 @@ class Form extends Component {
 					{
 						state.isEmptyField && !user.technology ? 
 						<span>This field must be filled.</span> : 
-						<></>
+						null
 					}
 				</div>
 				<TextArea 
@@ -137,7 +137,7 @@ class Form extends Component {
 					{
 						state.isEmptyField && !user.lastProject ? 
 						<ErrorMessage/> : 
-						<></>
+						null
 					}
 				</div>
 				<button onClick={this.props.onCancel}>Cancel</button>
