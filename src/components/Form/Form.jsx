@@ -5,7 +5,8 @@ import PhoneInput from '../PhoneInput/PhoneInput';
 import TextArea from '../TextArea/TextArea';
 import './style.css';
 
-class Form extends Component {
+
+export default class Form extends Component {
   render() {
     const state = this.props.state;
     const user = this.props.state.user;
@@ -123,4 +124,3 @@ class Form extends Component {
   }
 }
 
-export default Form;

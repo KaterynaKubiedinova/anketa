@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css';
 
-export default class TextArea extends React.Component {
+class TextArea extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -48,3 +48,5 @@ export default class TextArea extends React.Component {
     );
   }
 }
+
+export default TextArea;

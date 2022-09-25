@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css';
 
-export default class Input extends React.Component {
+class Input extends React.Component {
   inputChange = (e) => {
     e.preventDefault();
     const name = e.target.name;
@@ -27,3 +27,5 @@ export default class Input extends React.Component {
     );
   }
 }
+
+export default Input;

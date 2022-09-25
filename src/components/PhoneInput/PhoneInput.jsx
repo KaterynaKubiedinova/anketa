@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css';
 
-export default class PhoneInput extends React.Component {
+class PhoneInput extends React.Component {
   phoneChange = (e) => {
     e.preventDefault();
     const name = e.target.name;
@@ -30,3 +30,5 @@ export default class PhoneInput extends React.Component {
     );
   }
 }
+
+export default PhoneInput;
