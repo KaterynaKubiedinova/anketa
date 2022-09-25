@@ -13,14 +13,13 @@ export default class PhoneInput extends React.Component {
 	}
 
 	render() {
-		const placeholder = this.props.placeholder;
-		const value = this.props.value;
+		const { plach, value } = this.props;
 
 		return (
 			<div className='single-line'>
 				<label htmlFor='phone'>{placeholder}</label>
 				<input 
-					placeholder={placeholder}
+					placeholder={plach}
 					type='tel'
 					name='phone'
 					value={value}
