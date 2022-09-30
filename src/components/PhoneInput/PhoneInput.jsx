@@ -26,3 +26,5 @@ export default function PhoneInput({ placeholder, value, onChange }) {
     </div>
   );
 }
+
+export default PhoneInput;
