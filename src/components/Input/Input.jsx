@@ -1,31 +1,31 @@
 import React from 'react';
 import './style.css';
 
-class Input extends React.Component {
-  inputChange = (e) => {
+export default function Input({
+  placeholder,
+  value,
+  inputName,
+  typeData,
+  onChange,
+}) {
+  function inputChange(e) {
     e.preventDefault();
     const name = e.target.name;
     const value = e.target.value.trim();
 
-    this.props.onChange(name, value);
-  };
-
-  render() {
-    const { placeholder, value, inputName, typeData } = this.props;
-
-    return (
-      <div className='single-line'>
-        <label htmlFor={inputName}>{placeholder}</label>
-        <input
-          placeholder={placeholder}
-          type={typeData}
-          name={inputName}
-          value={value}
-          onChange={this.inputChange}
-        />
-      </div>
-    );
+    onChange(name, value);
   }
-}
 
-export default Input;
+  return (
+    <div className='single-line'>
+      <label htmlFor={inputName}>{placeholder}</label>
+      <input
+        placeholder={placeholder}
+        type={typeData}
+        name={inputName}
+        value={value}
+        onChange={inputChange}
+      />
+    </div>
+  );
+}

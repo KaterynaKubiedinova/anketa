@@ -1,0 +1,47 @@
+.theme-light {
+	background: rgb(192, 105, 192);
+	color: rgb(93, 3, 93);
+}
+
+.theme-dark {
+	background: rgb(70, 31, 70);
+	color: rgb(237, 170, 237);
+}
+
+.theme-dark button {
+	background: rgb(156, 17, 156);
+	color: rgb(237, 170, 237);
+}
+
+.theme-dark .single-line {
+	background: rgb(124, 66, 124);
+	color: rgb(47, 9, 47);
+}
+
+.theme-dark input {
+	background: rgb(187, 99, 163);
+	color: rgb(47, 9, 47);
+}
+
+.theme-dark input::placeholder {
+	color: rgb(47, 9, 47);
+}
+
+.theme-dark .multi-line {
+	background: rgb(124, 66, 124);
+	color: rgb(47, 9, 47);
+}
+
+.theme-dark textarea {
+	background: rgb(187, 99, 163);
+	color: rgb(47, 9, 47);
+}
+
+.theme-dark textarea::placeholder {
+	color: rgb(47, 9, 47);
+}
+
+.theme-dark .saved-field {
+	background: rgb(124, 66, 124);
+	color: rgb(47, 9, 47);
+}

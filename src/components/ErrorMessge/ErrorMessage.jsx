@@ -1,13 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class ErrorMessage extends Component {
-  render() {
-    return (
-      <>
-        <span>This field must be filled.</span>
-      </>
-    );
-  }
+export default function ErrorMessage() {
+  return (
+    <>
+      <span>This field must be filled.</span>
+    </>
+  );
 }
-
-export default ErrorMessage;

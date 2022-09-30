@@ -1,12 +1,14 @@
-import React from 'react';
+import './App.css';
 import Questionary from './components/Questionary/Questionary';
-
+import ThemeProvider from './context/ThemeProvider';
 
 function App() {
   return (
-    <div className="App">
-      <Questionary/>
-    </div>
+    <ThemeProvider>
+      <div className='App'>
+        <Questionary />
+      </div>
+    </ThemeProvider>
   );
 }
 
